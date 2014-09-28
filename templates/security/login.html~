@@ -1,54 +1,93 @@
 {% extends 'base.html' %}
 {% block title %}Welcome to Fund A Friend  {% endblock %}
-
+.loginspan {
+ display: inline-block;
+  vertical-align: middle;
+  line-height: normal; 
+}
 {% block content %}
- <style>
-    /* Prevents slides from flashing */
-    #slides {
-      display:none;
-    }
-   #slideshow {
-    position:relative;
-    height:100px;
-    width:200px;
+<style>
+
+.logincontainer {
+ display: inline-block;
+  vertical-align: middle;
+  line-height: normal; 
+  margin-left : 30%;
+  margin-top : 10%;
+}
+.mybutton {
+margin-left: 30px;
 }
 
-#slideshow IMG {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:8;
+.loginform fieldset{
+  height: 200px;
+  background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+	-webkit-box-shadow: 0 1px 0 #fff inset;
+	-moz-box-shadow: 0 1px 0 #fff inset;
+	-ms-box-shadow: 0 1px 0 #fff inset;
+	-o-box-shadow: 0 1px 0 #fff inset;
+	box-shadow: 0 1px 0 #fff inset;
 }
 
-#slideshow IMG.active {
-    z-index:10;
+.button {
+	
+	background: rgb(254,231,154);
+	background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	background: -o-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	background: linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee79a', endColorstr='#fec151',GradientType=0 );
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-ms-border-radius: 30px;
+	-o-border-radius: 30px;
+	border-radius: 30px;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	-ms-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	-o-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	border: 1px solid #D69E31;
+	color: #85592e;
+	cursor: pointer;
+	
+	padding-left: 30px;
+	
+	#margin: 20px 0 35px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	width: 100px;
 }
-
-#slideshow IMG.last-active {
-    z-index:9;
+.button:hover {
+	background: rgb(254,193,81);
+	background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	background: -o-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
 }
-  </style>
- <script>
-function slideSwitch() {
-    var $active = $('#slideshow IMG.active');
+</style>
+<div  class="logincontainer" >
+		<form class="loginform" action="{% url security.views.login %}" method="POST">
 
-    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+			<fieldset class="">
+				<label> Enter your user id </label>
+				<input type="text" placeholder="Username" required="true" name="username" id="username" />
+			   <br/>
+				<label> Enter your user id </label>
+				<input type="password" placeholder="Password" required="" name="password" id="password" />
+				<br/>
+				<input class="button" type="submit" value="Log in" />
+				</fieldset>
+			
+		</form><!-- form -->
 
-    var $next =  $active.next().length ? $active.next()
-        : $('#slideshow IMG:first');
-
-    $active.addClass('last-active');
-        
-    $next.css({opacity: 0.0})
-        .addClass('active')
-        .animate({opacity: 1.0}, 1000, function() {
-            $active.removeClass('active last-active');
-        });
-}
-
-$(function() {
-    setInterval( "slideSwitch()", 5000 );
-});
-  </script>
-
+</div>
 {% endblock %}

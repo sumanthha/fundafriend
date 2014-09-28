@@ -1,162 +1,72 @@
 
-
-<link rel="stylesheet" type="text/css" href="/media/dhtmlx/dhtmlxMenu/codebase/skins/dhtmlxmenu_dhx_skyblue.css">
-
-<script src="/media/dhtmlx/dhtmlxMenu/codebase/dhtmlxcommon.js"></script>
-<script src="/media/dhtmlx/dhtmlxMenu/codebase/dhtmlxmenu.js"></script>
-<script src="/media/dhtmlx/dhtmlxMenu/codebase/ext/dhtmlxmenu_ext.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="/media/css/menu.css">
 <style>
-.logo {
-width : 300px;
-}
 
-.menu,
-.menu ul,
-.menu li,
-.menu a {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
- 
-.menu {
-    height: 40px;
-    width: 505px;
- 
-    background: #4c4e5a;
-    background: -webkit-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: -moz-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: -o-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: -ms-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
- 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
- 
-.menu li {
-    position: relative;
-    list-style: none;
-    float: left;
-    display: block;
-    height: 40px;
-}
-
-.menu ul { display: none; }
-
-.menu li a {
-    display: block;
-    padding: 0 14px;
-    margin: 6px 0;
-    line-height: 28px;
-    text-decoration: none;
- 
-    border-left: 1px solid #393942;
-    border-right: 1px solid #4f5058;
- 
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 13px;
- 
-    color: #f3f3f3;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
- 
-    -webkit-transition: color .2s ease-in-out;
-    -moz-transition: color .2s ease-in-out;
-    -o-transition: color .2s ease-in-out;
-    -ms-transition: color .2s ease-in-out;
-    transition: color .2s ease-in-out;
-}
- 
-.menu li:first-child a { border-left: none; }
-.menu li:last-child a{ border-right: none; }
- 
-.menu li:hover > a { color: #8fde62; }
-
-.menu ul {
-    position: absolute;
-    top: 40px;
-    left: 0;
- 
-    opacity: 0;
-    background: #1f2024;
- 
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
- 
-    -webkit-transition: opacity .25s ease .1s;
-    -moz-transition: opacity .25s ease .1s;
-    -o-transition: opacity .25s ease .1s;
-    -ms-transition: opacity .25s ease .1s;
-    transition: opacity .25s ease .1s;
-}
- 
-.menu li:hover > ul { opacity: 1; }
- 
-.menu ul li {
-    height: 0;
-    overflow: hidden;
-    padding: 0;
- 
-    -webkit-transition: height .25s ease .1s;
-    -moz-transition: height .25s ease .1s;
-    -o-transition: height .25s ease .1s;
-    -ms-transition: height .25s ease .1s;
-    transition: height .25s ease .1s;
-}
- 
-.menu li:hover > ul li {
-    height: 36px;
-    overflow: visible;
-    padding: 0;
-}
-
-.menu ul li a {
-    width: 100px;
-    padding: 4px 0 4px 40px;
-    margin: 0;
- 
-    border: none;
-    border-bottom: 1px solid #353539;
-}
- 
-.menu ul li:last-child a { border: none; }
-
-.menu a.documents { background: url(../img/docs.png) no-repeat 6px center; }
-.menu a.messages { background: url(../img/bubble.png) no-repeat 6px center; }
-.menu a.signout { background: url(../img/arrow.png) no-repeat 6px center; }
-
-.header { background: #4c4e5a;
-    background: -webkit-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: -moz-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: -o-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: -ms-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-    background: linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
-   }
 </style>
-<div class="header">
-  <div class="logo"> </div>
-  <ul class="menu">
- 
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Invest</a></li>
-    <li><a href="#">Borrow</a>
-    <li><a href="#">How Does it Work ?</a>
-        <ul>
-            <li><a href="#" class="documents">Documents</a></li>
-            <li><a href="#" class="messages">Messages</a></li>
-            <li><a href="#" class="signout">Sign Out</a></li>
-        </ul>
-    </li>
-    <li><a href="/login/">Login</a></li>
-    <li><a href="#">Join</a></li>
- 
-</ul> 
-</header>
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+	// Requried: Navigation bar drop-down
+	$("nav ul li").hover(function() {
+		$(this).addClass("active");
+		$(this).find("ul").show().animate({opacity: 1}, 400);
+		},function() {
+		$(this).find("ul").hide().animate({opacity: 0}, 200);
+		$(this).removeClass("active");
+	});
+	
+	// Requried: Addtional styling elements
+	$('nav ul li ul li:first-child').prepend('<li class="arrow"></li>');
+	$('nav ul li:first-child').addClass('first');
+	$('nav ul li:last-child').addClass('last');
+	$('nav ul li ul').parent().append('<span class="dropdown"></span>').addClass('drop');
+
+});
+</script>
+<div class="mainmenu">
+	<nav class="dark">
+			<ul class="clear">
+				<li><a href="{% url mainapp.views.index %}">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Investing</a>
+					<ul>
+						<li><a href="#">Why Invest ?</a></li>
+						<li><a href="#">Brows Loans</a></li>
+						<li><a href="#">Performance</a></li>
+						<li><a href="#">FAQs on Investing</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Borrowing</a>
+					<ul>
+						<li><a href="#">Apply for Loan</a></li>
+						<li><a href="#">FAQs on Borrowing</a></li>
+										
+					</ul>
+				</li>
+				{% if loggedin %}				
+				<li><a href="#">Account</a>
+					<ul>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">My Friends</a></li>
+										
+					</ul>
+				</li>
+				{% else %}
+					<li><a href="{% url security.views.login %}">Login</a></li>	
+					<li><a href="{% url security.views.join %}">Join</a></li>
+				{% endif %}
+				<li><a href="#">Our blog</a></li>
+				<li><a href="#">Contact us</a></li>
+			</ul>
+		</nav>
+		{% if loggedin %}	
+		<div class="signout"> <label>Welcome {{username}}</label> <br> <a href="{% url security.views.signoff %}">Sign out</a> </div>
+		{% endif %}
+		
+</div>
+
+
+
 
 
 

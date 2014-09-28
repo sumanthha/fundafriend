@@ -12,14 +12,12 @@
     <title>{% block title %}{% endblock %}</title>
 
     {% block css %}
-        <!-- <link rel="stylesheet" type="text/css" href="/media/dhtmlx3.6/dhtmlxMenu/codebase/skins/dhtmlxmenu_dhx_blue.css"/> -->
-	<link rel="stylesheet" type="text/css" href="/media/dhtmlx3.6/dhtmlxMenu/codebase/skins/dhtmlxmenu_dhx_terrace.css">
+   
+   
+      <link rel="stylesheet" type="text/css" href="/media/css/main.css">
     {% endblock %}
 
     {% block preload_js %}
-    <script src="/media/dhtmlx3.6/dhtmlxMenu/codebase/dhtmlxcommon.js"></script>
-    <script src="/media/dhtmlx3.6/dhtmlxMenu/codebase/dhtmlxmenu.js"></script>
-    <script src="/media/dhtmlx3.6/dhtmlxMenu/codebase/ext/dhtmlxmenu_ext.js"></script>
     <script src="/media/js/jquery/jquery-2.0.3.min.js"></script>
     <style>
 
@@ -46,10 +44,7 @@
         {% block content %}{% endblock %}
       </div>
 
-      <div id="sidebar" class="column">
-        {% block sidebar %}
-        {% endblock %}
-      </div>
+     </div>
     </div>
      {% include "footer.html" %}
     {% block js %}
