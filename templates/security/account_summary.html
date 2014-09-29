@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to Fund A Friend  {% endblock %}
+{% block content %}
+<div class="settings">
+<p class="contentheader"> Settings </p>
+<table class="accountsummary">
+    <thead>
+        <tr><th colspan=2>Account Summary</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Username </td> <td> {{user.username}}</td></tr>
+        <tr><td>First Name</td><td>{{user.first_name}}</td>
+        </tr>
+        <tr> <td>Last Name</td> <td> {{user.last_name}}</td></tr>
+        <tr> <td> Email </td> <td> {{user.email}} </td></tr>
+        <tr> <td> Pan Number </td> <td> {{account.pannumber}} </td></tr>
+        <tr> <td> Address Line 1 </td> <td> {{account.addressa}} </td></tr>
+        <tr> <td> Address Line 2 </td> <td> {{account.addressb}} </td></tr>
+        <tr> <td> City </td> <td> {{account.city}} </td></tr>
+        <tr> <td> State </td> <td> {{account.state}} </td></tr>
+        <tr> <td> Zip </td> <td> {{account.zip}} </td></tr>
+        <tr> <td> Home Phone </td> <td> {{account.homephone}} </td></tr>
+        <tr> <td> Mobile Phone </td> <td> {{account.mobilphone}} </td></tr>
+    </tbody>
+</table>	
+</div>
+{% endblock %}
