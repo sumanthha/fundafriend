@@ -43,11 +43,15 @@ $(document).ready(function(){
 										
 					</ul>
 				</li>
-				{% if loggedin %}				
+				{% if user and user.is_active %}			
 				<li><a href="#">Account</a>
 					<ul>
-						<li><a href="#">Settings</a></li>
-						<li><a href="#">My Friends</a></li>
+					    <li><a href="{% url security.views.account_summary %}">Overview</a></li>
+						<li><a href="{% url security.views.account_summary %}">Settings</a></li>
+						<li><a href="#">Invest</a></li>
+						<li><a href="#">Invest</a></li>
+						<li><a href="#">Invite</a></li>
+						<li><a href="#">History</a></li>
 										
 					</ul>
 				</li>
@@ -59,8 +63,8 @@ $(document).ready(function(){
 				<li><a href="#">Contact us</a></li>
 			</ul>
 		</nav>
-		{% if loggedin %}	
-		<div class="signout"> <label>Welcome {{username}}</label> <br> <a href="{% url security.views.signoff %}">Sign out</a> </div>
+		{% if user and user.is_active %}	
+		<div class="signout"> <label>Welcome {{user.first_name}}</label> <br> <a href="{% url security.views.signoff %}">Sign out</a> </div>
 		{% endif %}
 		
 </div>

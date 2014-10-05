@@ -1,27 +1,99 @@
 {% extends 'base.html' %}
 {% block title %}Welcome to Fund A Friend  {% endblock %}
 {% block content %}
+<style>
+.pheader {
+    width:100%;
+    background-color: #6699FF; 
+    height : 40px;
+    align-content: center;
+    vertical-align: middle;
+   
+    }
+
+.formlabel {
+    width: 200px;
+     display: inline-block;
+     text-align: right;
+     font-weight: bold;
+}
+
+.editable {
+ background: none;
+ width: 300px;
+ border-style: none;
+ padding-left: 10px;
+ 
+}
+</style>
 <div class="settings">
-<p class="contentheader"> Settings </p>
-<table class="accountsummary">
-    <thead>
-        <tr><th colspan=2>Account Summary</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>Username </td> <td> {{user.username}}</td></tr>
-        <tr><td>First Name</td><td>{{user.first_name}}</td>
-        </tr>
-        <tr> <td>Last Name</td> <td> {{user.last_name}}</td></tr>
-        <tr> <td> Email </td> <td> {{user.email}} </td></tr>
-        <tr> <td> Pan Number </td> <td> {{account.pannumber}} </td></tr>
-        <tr> <td> Address Line 1 </td> <td> {{account.addressa}} </td></tr>
-        <tr> <td> Address Line 2 </td> <td> {{account.addressb}} </td></tr>
-        <tr> <td> City </td> <td> {{account.city}} </td></tr>
-        <tr> <td> State </td> <td> {{account.state}} </td></tr>
-        <tr> <td> Zip </td> <td> {{account.zip}} </td></tr>
-        <tr> <td> Home Phone </td> <td> {{account.homephone}} </td></tr>
-        <tr> <td> Mobile Phone </td> <td> {{account.mobilphone}} </td></tr>
-    </tbody>
-</table>	
+<table style="margin: 0;padding: 0"><tr><td>
+<form >
+<fieldset>
+<p class="pheader"> <span style="padding-top: 5px;">Account Summary</span><input id="Edit" class="fbutton" type="submit" style="padding-top: 5px;float:right;" value="Edit" > </input> <input id="Save" class="fbutton" type="submit" style="padding-top: 5px;float:right;" value="Save" > </input></p>
+<br/>
+<label class="formlabel" for="username"> Username</label>
+<input class="editable" type="text" name="username" value="{{user.username}}" readonly/> 
+<br/>
+<label class="formlabel" for="firstname"> Firstname</label>
+<input class="editable" type="text" name ="firstname" value="{{user.first_name}}" readonly/> 
+<br/>
+
+<label for="lastname" class="formlabel"> Lastname</label>
+<input class="editable" type="text" name ="lastname" value="{{user.last_name}}" readonly/> 
+<br/>
+
+<label for="email" class="formlabel"> Email</label>
+<input class="editable" type="text" name ="email" value="{{user.email}}" readonly/> 
+<br/>
+<label for="pannumber" class="formlabel"> Pan Number</label>
+<input class="editable" type="text" name ="pannumber" value="{{user.pannumber}}" readonly/> 
+<br/>
+<label for="addressa" class="formlabel">Address Line 1 </label> 
+<input class="editable" type="text" name ="addressa" value="{{account.addressa}}" readonly/> 
+<br/>
+<label for="addressb" class="formlabel">Address Line 2 </label> 
+<input class="editable" type="text" name ="addressb" value="{{account.addressb}}" readonly/> 
+<br/>
+<label for="city" class="formlabel">City</label> 
+<input class="editable" type="text" name ="city" value="{{account.city}}" readonly/> 
+<br/>
+<label for="state" class="formlabel">State</label> 
+<input class="editable" type="text" name ="state" value="{{account.state}}" readonly/> 
+<br/>
+<label for="state" class="formlabel">State</label> 
+<input class="editable" type="text" name ="state" value="{{account.state}}" readonly/> 
+<br/>   
+<label for="zip" class="formlabel">Zip</label> 
+<input class="editable" type="text" name ="zip" value="{{account.zip}}" readonly/> 
+<br/>
+<label for="homephone" class="formlabel">Home Phone</label> 
+<input class="editable" type="text" name ="homephone" value="{{account.homephone}}" readonly/> 
+<br/>   
+<label for="mobilephone" class="formlabel">Mobile Phone</label> 
+<input class="editable" type="text" name ="modilephone" value="{{account.mobilephone}}" readonly/> 
+<br/>   
+</fieldset>
+</form>
+</td>
+<td rowspan="2" width="200px" align="top">
+  <fieldset>
+  <p class="pheader"> <span >Friends</span></p>
+  </fieldset>
+</td>
+</tr>
+<tr>
+    <td>
+    <form>
+    <fieldset>
+<p class="pheader"> <span style="padding-top: 5px;">Bank Accounts</span><input id="add" class="fbutton" type="submit" style="padding-top: 5px;float:right;" value="Add" /> <input id="Edit" class="fbutton" type="submit" style="padding-top: 5px;float:right;" value="Edit" /> <input id="Save" class="fbutton" type="submit" style="padding-top: 5px;float:right;" value="Save" > </input></p>
+    </fieldset>
+    </form>
+    </td>
+    <td>
+    </td>
+ </tr>
+</table>      
+    
 </div>
 {% endblock %}
