@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 players_details = [ ('a',32,'Right Hand Bat' ),  ]
 def index(request):
     if request.user is not None and request.user.is_active == True:
-        return render_to_response('home.html', {'loggedin' : True , 'username' : request.user.first_name } )
+        return render_to_response('home.html', {'user':request.user } )
     return render_to_response('home.html' )
 
 

@@ -6,6 +6,12 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as dlogin
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+#def login_required(request):
+#    if request.user is None or request.user.is_active == False:
+#        return render_to_response('security/login.html')
+#    return render_to_response('security/success.html', {'loggedin' : True , 'username' : request.user.first_name } )
+
 
 def login(request):
     if request.method == 'POST':
@@ -13,9 +19,9 @@ def login(request):
         password = request.POST['password']
         user = authenticate(username=username, password=password)
         dlogin(request,user)
-        return render_to_response('security/success.html', {'loggedin' : True ,'username' : user.username } )
+        return render_to_response('security/success.html', {'user' : user } )
     if request.user is not None and request.user.is_active == True:
-        return render_to_response('security/success.html', {'loggedin' : True , 'username' : request.user.username } )
+        return render_to_response('security/success.html', {'user' : request.user } )
     return render_to_response('security/login.html')
 
 from django.contrib.auth import logout
@@ -36,5 +42,21 @@ def join(request):
         user.first_name = firstname
         user.save()
         request.user = user
-        return render_to_response('security/success.html', {'loggedin' : True , 'username' : request.user.username } )
+        return render_to_response('security/success.html', {'user' : request.user } )
     return render_to_response('security/join.html')
+
+from security.models import Account
+from django.core.exceptions import ObjectDoesNotExist
+@login_required
+def account_summary(request):
+    try:
+        account = Account.objects.get( user = request.user )
+    except ObjectDoesNotExist:
+        account = Account( user = request.user )
+        account.save()
+        print account
+    return render_to_response('security/account_summary.html', {
+        'user' : request.user,
+        'account' : account,
+    })
+   

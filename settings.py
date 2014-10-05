@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.sessions',
+    'django.contrib.messages',
     'djangotoolbox',
     'autoload',
     'dbindexer',
@@ -40,15 +41,15 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     # This loads the index definitions, so it has to come first
     'autoload.middleware.AutoloadMiddleware',
-
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.request',
+        'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
 )
@@ -58,9 +59,15 @@ ROOT_PATH = os.path.dirname(__file__)
 # This test runner captures stdout and associates tracebacks with their
 # corresponding output. Helps a lot with print-debugging.
 TEST_RUNNER = 'djangotoolbox.test.CapturingTestSuiteRunner'
+ADMIN_STATIC =  '/media/'
 STATIC_URL = ROOT_PATH + '/media/'
 MEDIA_ROOT = ROOT_PATH + '/media/'
-
+STATICFILES_DIRS = ( 
+'/home/sumanth/workspace/fundafriend/media/',
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'

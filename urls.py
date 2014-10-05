@@ -21,7 +21,7 @@ urlpatterns = patterns(
     url(r'^mainapp/', include('mainapp.urls')),
 
     url(r'^login/', include('security.urls')),
-
+    url(r'^loans/', include('loan.urls')),
     ('^_ah/warmup$', 'djangoappengine.views.warmup'),
     ('^$', 'mainapp.views.index'),
     ('^admin/', include(admin.site.urls)),

@@ -38,8 +38,9 @@ $(document).ready(function(){
 				</li>
 				<li><a href="#">Borrowing</a>
 					<ul>
-						<li><a href="#">Apply for Loan</a></li>
-						<li><a href="#">FAQs on Borrowing</a></li>
+						<li><a href="{% url loan.views.apply_loan %}">Apply for Loan</a></li>
+						<li><a href="{% url loan.views.list_loans %}">List Loans</a></li>
+						<li><a href="{% url loan.views.list_loans %}">FAQs on Borrowing </a></li>
 										
 					</ul>
 				</li>
